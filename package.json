@@ -1,0 +1,15 @@
+{
+  "name": "toko-kelontong",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:backend": "yarn workspace backend run start",
+    "dev:frontend": "yarn workspace frontend run dev",
+    "dev:all": "yarn dev:backend & yarn dev:frontend"
+  }
+}
