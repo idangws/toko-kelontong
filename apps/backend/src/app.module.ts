@@ -12,11 +12,11 @@ import { UploadModule } from './upload/upload.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'admin_toko',
-      password: 'password_toko',
-      database: 'toko',
+      host: process.env.DATABASE_HOST || 'localhost',
+      port: +(process.env.DATABASE_PORT || 0) || 5432,
+      username: process.env.DATABASE_USERNAME || 'admin_toko',
+      password: process.env.DATABASE_PASSWORD || 'password_toko',
+      database: process.env.DATABASE_NAME || 'toko',
       autoLoadEntities: true,
       synchronize: true,
     }),
