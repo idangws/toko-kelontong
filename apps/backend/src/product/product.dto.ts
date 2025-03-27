@@ -5,7 +5,6 @@ import {
   IsOptional,
   IsPositive,
   IsString,
-  IsUrl,
   MinLength,
 } from 'class-validator';
 
@@ -48,7 +47,7 @@ export class CreateProductDto {
   @IsPositive()
   height: number;
 
-  @IsUrl()
+  @IsString()
   @IsNotEmpty()
   image: string;
 
@@ -101,7 +100,7 @@ export class UpdateProductDto {
   @IsPositive()
   height: number;
 
-  @IsUrl()
+  @IsString()
   image: string;
 
   @IsInt()
@@ -137,7 +136,7 @@ export class SaveUpdateProductDtop {
   @IsPositive()
   height: number;
 
-  @IsUrl()
+  @IsString()
   image: string;
 
   @IsInt()

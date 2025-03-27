@@ -8,10 +8,6 @@ import { Repository } from 'typeorm';
 
 import { Category, UpdateCategoryDto } from './category.entity';
 
-import { paginate } from 'src/common/utils/pagination.utils';
-import { PaginationOptionsDto } from 'src/common/dtos/pagination-options.dto';
-import { PaginatedResult } from 'src/common/dtos/pagination.dto';
-
 @Injectable()
 export class CategoryService {
   constructor(
@@ -50,9 +46,7 @@ export class CategoryService {
     });
   }
 
-  async findAll(
-    options: PaginationOptionsDto,
-  ): Promise<PaginatedResult<Category>> {
-    return paginate(this.categoryRepository, options);
+  async findAll(): Promise<Category[]> {
+    return this.categoryRepository.find();
   }
 }

@@ -3,7 +3,6 @@ import {
   Get,
   Post,
   Body,
-  Query,
   Param,
   ParseIntPipe,
   Put,
@@ -11,7 +10,6 @@ import {
 } from '@nestjs/common';
 
 import { CategoryService } from './category.service';
-import { PaginationOptionsDto } from 'src/common/dtos/pagination-options.dto';
 import { UpdateCategoryDto } from './category.entity';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
@@ -21,8 +19,8 @@ export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
   @Get()
-  findAll(@Query() paginationOptions: PaginationOptionsDto) {
-    return this.categoryService.findAll(paginationOptions);
+  findAll() {
+    return this.categoryService.findAll();
   }
 
   @Post()

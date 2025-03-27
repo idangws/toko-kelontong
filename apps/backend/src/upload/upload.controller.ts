@@ -35,7 +35,7 @@ export class UploadController {
   uploadFile(@UploadedFile() file: Express.Multer.File) {
     return {
       filename: file.filename,
-      path: `/uploads/${file.filename}`,
+      path: `${process.env.BASE_URL}:${process.env.PORT}/uploads/${file.filename}`,
     };
   }
 }
