@@ -1,7 +1,6 @@
 import {
   CreateDateColumn,
   UpdateDateColumn,
-  Column,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -18,10 +17,4 @@ export abstract class BaseEntity {
     onUpdate: 'CURRENT_TIMESTAMP',
   })
   updatedAt: Date;
-
-  @Column({ nullable: true })
-  createdBy: number;
-
-  @Column({ nullable: true })
-  updatedBy: number;
 }
