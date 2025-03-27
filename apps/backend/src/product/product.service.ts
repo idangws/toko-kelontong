@@ -4,7 +4,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { FindOptionsWhere, Like, Repository } from 'typeorm';
+import { FindOptionsWhere, ILike, Repository } from 'typeorm';
 import { Product } from './product.entity';
 import { Category } from '../category/category.entity';
 import {
@@ -64,7 +64,7 @@ export class ProductService {
     const where: FindOptionsWhere<Product> = {};
 
     if (params?.name) {
-      where.name = Like(`%${params?.name}`);
+      where.name = ILike(`%${params?.name}%`);
     }
     if (params?.category_id) {
       where.category = { id: params?.category_id };
